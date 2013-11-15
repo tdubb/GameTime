@@ -1,4 +1,8 @@
 def start
+	puts "When you're ready for an adventure hit a letter key then enter"
+	input = gets.chomp.to_i
+	# puts input
+	if input === 0
 	level = 1
 	puts "\n\n"
 	puts "You're in a room and you find a die on the floor \nAn ominous voice from an unknown location speaks" 
@@ -8,16 +12,22 @@ def start
 
 	
 
-	if input === "yes"
+	if input === "yes" || input === "Yes"
+
+		# puts "do you want to "
         while level === 1 do 
         n = rand(1..6).to_i
         d = rand(1..6).to_i
+        puts "|", "|", "|","|"
         puts "-------------------------------------------------------------"
-        print "All you can hear is the bouncing of the die and your \nfait waits in the balance"
+        print "All you can hear is the bouncing of the die as your \nfait waits in the balance. "
+        puts " The die comes to a stop... "
+        puts "|", "|", "|","|"
+        puts "--------------------------------------------------------------"
 		print "\nYou rolled a #{n} and the magic number was #{d} \n"
 		
 		lives = 3
-		# n = 3
+		# n = 35
 		# d = 1
 		# puts n
 		# puts d
@@ -32,7 +42,7 @@ def start
 
 			elsif n === d + 1 || n === d - 1 || n === d + 2 || n === d - 2
 				puts "----------------------------------------------------------------\n"
-				puts "So close the  voice feels bad for you and lets you live"
+				puts "So close the voice feels bad for you and lets you live"
 				level = 2   
 				
 			else
@@ -47,15 +57,16 @@ def start
 				end
 			end	
 
-
-				puts "The voice calls you hither and as you walk forward you pass \n through a portal. The voice speaks. \n :If you can know my mind I will set you free."
+				puts "|", "|", "|","|"
+				puts "The voice calls you hither and as you walk forward you pass \nthrough a portal. The voice speaks."
+				puts "|", "|", ":If you can know my mind I will set you free."
 				
 				while level === 2 do
 					if lives === 0
 						puts "Game Over"
 						break;
 					end
-				
+				puts "|", "|"
 				puts "you have #{lives} live(s)."
 				puts "The voice asks you what number he is thinking of from 1 - 10"
 				n = gets.chomp.to_i
@@ -63,11 +74,11 @@ def start
 				
 
 					if d === n
-						puts "Congratulations! You win the game! You are a supieror guesser! You escape with your life and many riches"
+						puts "You know my mind and have won your life.u You escape with your life and many riches"
 						level = 0
 						exit
 					elsif n === d + 1 || n === d-1
-						puts "Your guess distracted the voice long enough for you to escape with your life. He curses your name and your prosterity as you run far away"
+						puts "The ominous creature was distracted and thought for a moment you said #{d}, you take this chance to escape with your life but not your honor. He curses your name and your prosterity as you scamper far away"
 						level = 0
 						exit
 					elsif n < 1 || n > 10
@@ -76,6 +87,7 @@ def start
 						lives = 0
 					elsif n === d + 2 || n === d - 2
 						puts "Your guess close enough. You live for the moment."
+						puts "--------------------------------------------------"
 						leve = 2
 
 					else 
@@ -93,17 +105,18 @@ def start
 			
 	else
 		puts "------------------------------------------------------------"
-		puts "\nOmnivorous rats flood the room and leave your bones bare"
+		puts "\nCarnivorous rats flood the room and leave your bones bare"
 		puts "Game Over"
 		puts "Would you like to play again?\n"
 		input = gets.chomp
-		if  input === "yes"
+		if  input === "yes" || input === "Yes"
 			start
 		else
 			exit
 		end
 	end
-	
+	else
+	end
 end
 
 
